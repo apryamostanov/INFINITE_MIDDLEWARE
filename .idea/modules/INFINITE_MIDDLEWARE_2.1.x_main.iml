@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="INFINITE_MIDDLEWARE_2.1.x:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/com/a9ae0b01f0ffc/infinite_middleware" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src/com/a9ae0b01f0ffc/middleware">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/com/a9ae0b01f0ffc/middleware" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-all:2.4.12" level="project" />
+    <orderEntry type="library" name="Gradle: a9ae0b01f0ffc:INFINITE_TOOLS:1.0.0.BETA.007" level="project" />
+    <orderEntry type="library" name="Gradle: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Gradle: a9ae0b01f0ffc:INFINITE_LOGGING:1.0.0.BETA.002" level="project" />
+    <orderEntry type="library" name="Gradle: io.jsonwebtoken:jjwt:0.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.json:json:20171018" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.ant:ant:1.10.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.ant:ant-launcher:1.10.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.9" level="project" />
+  </component>
+</module>

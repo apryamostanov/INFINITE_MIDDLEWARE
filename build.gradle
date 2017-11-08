@@ -1,0 +1,44 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+    compile 'a9ae0b01f0ffc:INFINITE_TOOLS:1.0.0.BETA.007'
+    compile 'javax.servlet:servlet-api:2.5'
+    compile 'a9ae0b01f0ffc:INFINITE_LOGGING:1.0.0.BETA.002'
+    compile 'io.jsonwebtoken:jjwt:0.9.0'
+    compile 'org.json:json:20171018'
+    compile 'org.apache.ant:ant:1.10.1'
+    testCompile 'junit:junit:4.12'
+}
+
+uploadArchives {
+    repositories {
+        mavenLocal()
+        mavenDeployer {
+            repository(url: mavenLocal().url)
+            pom.version = '2.1.0'
+            pom.groupId = 'a9ae0b01f0ffc'
+            pom.artifactId = 'INFINITE_MIDDLEWARE'
+        }
+    }
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src/com/a9ae0b01f0ffc/infinite_middleware']
+        }
+    }
+
+    test {
+        groovy {
+            srcDirs = ['src/com/a9ae0b01f0ffc/infinite_middleware/tests']
+        }
+    }
+}
