@@ -1,6 +1,7 @@
 package implementation
 
 import other.T_common_conf
+import static base.T_logging_base_4_const.*
 
 class T_middleware_conf extends T_common_conf {
 
@@ -49,46 +50,46 @@ class T_middleware_conf extends T_common_conf {
 
     T_middleware_conf(String i_conf_file_name) {
         super(i_conf_file_name)
-        GC_MIDDLEWARE_CLASSES_CONF = get_conf().middleware_classes_conf
-        GC_BLACK_BOX_CONFIG = get_conf().black_box_config
-        GC_THREAD_CONFIG_FILE_NAME = get_conf().thread_config_file_name
-        GC_REQUEST_METHOD_INTERNAL = get_conf().request_method_internal
-        GC_USER_AGENT_INTERNAL = get_conf().user_agent_internal
-        GC_ACCEPT_LANGUAGE_INTERNAL = get_conf().accept_language_internal
-        GC_CONTENT_TYPE_INTERNAL = get_conf().content_type_internal
-        GC_CONTENT_TYPE_EXTERNAL = get_conf().content_type_external
-        GC_HOST_NAME_INTERNAL = get_conf().host_name_internal
-        GC_UNSERCURE_TEST_TLS_SSL_MODE_INTERNAL = get_conf().unsercure_test_tls_ssl_mode_internal
-        GC_ENDPOINT_INTERNAL = get_conf().endpoint_internal
-        GC_JSON_INDENT = get_conf().json_indent
-        GC_SOAP_USER = get_conf().soap_user
-        GC_SOAP_PASSWORD = get_conf().soap_password
-        GC_SOAP_IP = get_conf().soap_ip
-        GC_SOAP_SOURCE = get_conf().soap_source
-        GC_SOAP_API_VERSION = get_conf().soap_api_version
-        GC_KEYSTORE_TYPE = get_conf().keystore_type
-        GC_KEYSTORE_PATH = get_conf().keystore_path
-        GC_KEYSTORE_PASSWORD = get_conf().keystore_password
-        GC_JAVAX_DEBUG = get_conf().javax_debug
-        GC_SOAPACTION_HEADER_PREFIX = get_conf().soapaction_header_prefix
-        GC_XML_TEMPLATES_PATH = get_conf().xml_templates_path
-        GC_TEMPLATE_FILENAME_EXTENSION = get_conf().template_filename_extension
-        GC_TYPES_PATH = get_conf().types_path
-        GC_DYNAMIC_TOKEN_CODE = get_conf().dynamic_token_code
-        GC_ROUTING_MODULE_NAME = get_conf().routing_module_name
-        GC_ROUTING_MODULE_PATH = get_conf().routing_module_path
-        GC_MIDDLEWARE_PACKAGE_TOKEN = get_conf().middleware_package_token
-        GC_MIDDLEWARE_PACKAGE_NAME = get_conf().middleware_package_name
-        GC_SERVICE_MODULES_PATH = get_conf().service_modules_path
-        GC_JSON_TEMPLATES_PATH = get_conf().json_templates_path
-        GC_JWT_KEYSTORE_TYPE = get_conf().jwt_keystore_type
-        GC_JWT_KEYSTORE_PATH = get_conf().jwt_keystore_path
-        GC_JWT_KEYSTORE_PASSWORD = get_conf().jwt_keystore_password
-        GC_JWT_KEYSTORE_ALIAS = get_conf().jwt_keystore_alias
-        GC_NO_JWT_SERVICES = get_conf().no_jwt_services
-        GC_JWT_TEST_MODE = get_conf().jwt_test_mode
-        GC_TEST_TRACE_MODE = get_conf().test_trace_mode
-        GC_COMPOSITE_SERVICES_PATH = get_conf().composite_services_path
+        GC_MIDDLEWARE_CLASSES_CONF = nvl_empty_map(get_conf().middleware_classes_conf, GC_MIDDLEWARE_CLASSES_CONF)
+        GC_BLACK_BOX_CONFIG = nvl_empty_map(get_conf().black_box_config, GC_BLACK_BOX_CONFIG)
+        GC_THREAD_CONFIG_FILE_NAME = nvl_empty_map(get_conf().thread_config_file_name, GC_THREAD_CONFIG_FILE_NAME)
+        GC_REQUEST_METHOD_INTERNAL = nvl_empty_map(get_conf().request_method_internal, GC_REQUEST_METHOD_INTERNAL)
+        GC_USER_AGENT_INTERNAL = nvl_empty_map(get_conf().user_agent_internal, GC_USER_AGENT_INTERNAL)
+        GC_ACCEPT_LANGUAGE_INTERNAL = nvl_empty_map(get_conf().accept_language_internal, GC_ACCEPT_LANGUAGE_INTERNAL)
+        GC_CONTENT_TYPE_INTERNAL = nvl_empty_map(get_conf().content_type_internal, GC_CONTENT_TYPE_INTERNAL)
+        GC_CONTENT_TYPE_EXTERNAL = nvl_empty_map(get_conf().content_type_external, GC_CONTENT_TYPE_EXTERNAL)
+        GC_HOST_NAME_INTERNAL = nvl_empty_map(get_conf().host_name_internal, GC_HOST_NAME_INTERNAL)
+        GC_UNSERCURE_TEST_TLS_SSL_MODE_INTERNAL = nvl_empty_map(get_conf().unsercure_test_tls_ssl_mode_internal, GC_UNSERCURE_TEST_TLS_SSL_MODE_INTERNAL)
+        GC_ENDPOINT_INTERNAL = nvl_empty_map(get_conf().endpoint_internal, GC_ENDPOINT_INTERNAL)
+        GC_JSON_INDENT = nvl_empty_map(get_conf().json_indent, GC_JSON_INDENT)
+        GC_SOAP_USER = nvl_empty_map(get_conf().soap_user, GC_SOAP_USER)
+        GC_SOAP_PASSWORD = nvl_empty_map(get_conf().soap_password, GC_SOAP_PASSWORD)
+        GC_SOAP_IP = nvl_empty_map(get_conf().soap_ip, GC_SOAP_IP)
+        GC_SOAP_SOURCE = nvl_empty_map(get_conf().soap_source, GC_SOAP_SOURCE)
+        GC_SOAP_API_VERSION = nvl_empty_map(get_conf().soap_api_version, GC_SOAP_API_VERSION)
+        GC_KEYSTORE_TYPE = nvl_empty_map(get_conf().keystore_type, GC_KEYSTORE_TYPE)
+        GC_KEYSTORE_PATH = nvl_empty_map(get_conf().keystore_path, GC_KEYSTORE_PATH)
+        GC_KEYSTORE_PASSWORD = nvl_empty_map(get_conf().keystore_password, GC_KEYSTORE_PASSWORD)
+        GC_JAVAX_DEBUG = nvl_empty_map(get_conf().javax_debug, GC_JAVAX_DEBUG)
+        GC_SOAPACTION_HEADER_PREFIX = nvl_empty_map(get_conf().soapaction_header_prefix, GC_SOAPACTION_HEADER_PREFIX)
+        GC_XML_TEMPLATES_PATH = nvl_empty_map(get_conf().xml_templates_path, GC_XML_TEMPLATES_PATH)
+        GC_TEMPLATE_FILENAME_EXTENSION = nvl_empty_map(get_conf().template_filename_extension, GC_TEMPLATE_FILENAME_EXTENSION)
+        GC_TYPES_PATH = nvl_empty_map(get_conf().types_path, GC_TYPES_PATH)
+        GC_DYNAMIC_TOKEN_CODE = nvl_empty_map(get_conf().dynamic_token_code, GC_DYNAMIC_TOKEN_CODE)
+        GC_ROUTING_MODULE_NAME = nvl_empty_map(get_conf().routing_module_name, GC_ROUTING_MODULE_NAME)
+        GC_ROUTING_MODULE_PATH = nvl_empty_map(get_conf().routing_module_path, GC_ROUTING_MODULE_PATH)
+        GC_MIDDLEWARE_PACKAGE_TOKEN = nvl_empty_map(get_conf().middleware_package_token, GC_MIDDLEWARE_PACKAGE_TOKEN)
+        GC_MIDDLEWARE_PACKAGE_NAME = nvl_empty_map(get_conf().middleware_package_name, GC_MIDDLEWARE_PACKAGE_NAME)
+        GC_SERVICE_MODULES_PATH = nvl_empty_map(get_conf().service_modules_path, GC_SERVICE_MODULES_PATH)
+        GC_JSON_TEMPLATES_PATH = nvl_empty_map(get_conf().json_templates_path, GC_JSON_TEMPLATES_PATH)
+        GC_JWT_KEYSTORE_TYPE = nvl_empty_map(get_conf().jwt_keystore_type, GC_JWT_KEYSTORE_TYPE)
+        GC_JWT_KEYSTORE_PATH = nvl_empty_map(get_conf().jwt_keystore_path, GC_JWT_KEYSTORE_PATH)
+        GC_JWT_KEYSTORE_PASSWORD = nvl_empty_map(get_conf().jwt_keystore_password, GC_JWT_KEYSTORE_PASSWORD)
+        GC_JWT_KEYSTORE_ALIAS = nvl_empty_map(get_conf().jwt_keystore_alias, GC_JWT_KEYSTORE_ALIAS)
+        GC_NO_JWT_SERVICES = nvl_empty_map(get_conf().no_jwt_services, GC_NO_JWT_SERVICES)
+        GC_JWT_TEST_MODE = nvl_empty_map(get_conf().jwt_test_mode, GC_JWT_TEST_MODE)
+        GC_TEST_TRACE_MODE = nvl_empty_map(get_conf().test_trace_mode, GC_TEST_TRACE_MODE)
+        GC_COMPOSITE_SERVICES_PATH = nvl_empty_map(get_conf().composite_services_path, GC_COMPOSITE_SERVICES_PATH)
     }
 
 }
