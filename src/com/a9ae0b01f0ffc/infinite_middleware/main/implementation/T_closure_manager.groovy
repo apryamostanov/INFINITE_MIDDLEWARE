@@ -1,7 +1,7 @@
 package implementation
 
 import annotations.I_black_box
-import main.T_middleware_base_6_util
+import base.T_middleware_base_6_util
 import other.E_application_exception
 
 class T_closure_manager extends T_middleware_base_6_util {

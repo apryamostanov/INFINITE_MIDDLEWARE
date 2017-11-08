@@ -4,7 +4,7 @@ import Interfaces.I_http_message
 import annotations.I_black_box
 import annotations.I_fix_variable_scopes
 import groovy.transform.ToString
-import main.T_middleware_base_6_util
+import base.T_middleware_base_6_util
 import other.E_application_exception
 
 import javax.net.ssl.HttpsURLConnection

@@ -4,7 +4,7 @@ import Interfaces.I_composite_service
 import Interfaces.I_http_message
 import annotations.I_black_box
 import annotations.I_fix_variable_scopes
-import main.T_middleware_base_6_util
+import base.T_middleware_base_6_util
 
 @I_fix_variable_scopes
 class T_composite_service extends T_middleware_base_6_util implements I_composite_service {

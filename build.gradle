@@ -32,7 +32,7 @@ uploadArchives {
 sourceSets {
     main {
         groovy {
-            srcDirs = ['src/com/a9ae0b01f0ffc/infinite_middleware']
+            srcDirs = ['src/com/a9ae0b01f0ffc/infinite_middleware/main']
         }
     }
 

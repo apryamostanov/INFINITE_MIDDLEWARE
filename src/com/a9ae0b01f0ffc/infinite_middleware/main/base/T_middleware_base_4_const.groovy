@@ -1,6 +1,4 @@
-package main
-
-import base.T_common_base_3_utils
+package base
 
 class T_middleware_base_4_const extends T_common_base_3_utils {
 

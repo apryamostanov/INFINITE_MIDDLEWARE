@@ -1,8 +1,7 @@
-package main
+package base
 
 import annotations.I_black_box
 import annotations.I_fix_variable_scopes
-import base.T_logging_base_5_context
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 import groovy.text.Template

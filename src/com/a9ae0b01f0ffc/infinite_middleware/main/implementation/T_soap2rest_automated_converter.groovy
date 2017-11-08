@@ -6,7 +6,7 @@ import annotations.I_black_box
 import annotations.I_fix_variable_scopes
 import groovy.json.JsonBuilder
 import groovy.transform.ToString
-import main.T_middleware_base_6_util
+import base.T_middleware_base_6_util
 import org.json.JSONObject
 
 @I_fix_variable_scopes
