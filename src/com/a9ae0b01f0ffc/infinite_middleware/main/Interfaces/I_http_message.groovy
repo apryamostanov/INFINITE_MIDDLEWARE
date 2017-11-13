@@ -57,4 +57,6 @@ interface I_http_message {
 
     String get_service_name()
 
+    void set_payload_json(String i_payload_json)
+
 }

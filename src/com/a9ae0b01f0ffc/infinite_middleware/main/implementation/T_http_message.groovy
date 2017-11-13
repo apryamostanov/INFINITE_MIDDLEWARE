@@ -242,4 +242,8 @@ class T_http_message extends T_middleware_base_6_util implements I_http_message,
         p_status = i_status
     }
 
+    @I_black_box("error")
+    void set_payload_json(String i_payload_json) {
+        p_payload_json = i_payload_json
+    }
 }

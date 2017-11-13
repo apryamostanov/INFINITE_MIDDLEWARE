@@ -5,51 +5,56 @@ import static base.T_logging_base_4_const.*
 
 class T_middleware_conf extends T_common_conf {
 
-    static String GC_MIDDLEWARE_CLASSES_CONF
-    static String GC_BLACK_BOX_CONFIG
-    static String GC_THREAD_CONFIG_FILE_NAME
-    static String GC_REQUEST_METHOD_INTERNAL
-    static String GC_USER_AGENT_INTERNAL
-    static String GC_ACCEPT_LANGUAGE_INTERNAL
-    static String GC_ACCEPT_LANGUAGE_EXTERNAL
-    static String GC_CONTENT_TYPE_INTERNAL
-    static String GC_CONTENT_TYPE_EXTERNAL
-    static String GC_HOST_NAME_INTERNAL
-    static String GC_UNSERCURE_TEST_TLS_SSL_MODE_INTERNAL
-    static String GC_ENDPOINT_INTERNAL
-    static String GC_JSON_INDENT
-    static String GC_SOAP_USER
-    static String GC_SOAP_PASSWORD
-    static String GC_SOAP_IP
-    static String GC_SOAP_SOURCE
-    static String GC_SOAP_API_VERSION
-    static String GC_KEYSTORE_TYPE
-    static String GC_KEYSTORE_PATH
-    static String GC_KEYSTORE_PASSWORD
-    static String GC_JWT_KEYSTORE_TYPE
-    static String GC_JWT_KEYSTORE_PATH
-    static String GC_JWT_KEYSTORE_PASSWORD
-    static String GC_JWT_KEYSTORE_ALIAS
-    static String GC_JAVAX_DEBUG
-    static String GC_SOAPACTION_HEADER_PREFIX
-    static String GC_XML_TEMPLATES_PATH
-    static String GC_JSON_TEMPLATES_PATH
-    static String GC_TEMPLATE_FILENAME_EXTENSION
-    static String GC_TYPES_PATH
-    static String GC_DYNAMIC_TOKEN_CODE
-    static Closure GC_DYNAMIC_TOKEN_CODE_CLOSURE
-    static String GC_ROUTING_MODULE_NAME
-    static String GC_ROUTING_MODULE_PATH
-    static String GC_MIDDLEWARE_PACKAGE_TOKEN
-    static String GC_MIDDLEWARE_PACKAGE_NAME
-    static String GC_SERVICE_MODULES_PATH
-    static String GC_NO_JWT_SERVICES
-    static String GC_JWT_TEST_MODE
-    static String GC_TEST_TRACE_MODE
-    static String GC_COMPOSITE_SERVICES_PATH
+    String GC_MIDDLEWARE_CLASSES_CONF
+    String GC_BLACK_BOX_CONFIG
+    String GC_THREAD_CONFIG_FILE_NAME
+    String GC_REQUEST_METHOD_INTERNAL
+    String GC_USER_AGENT_INTERNAL
+    String GC_ACCEPT_LANGUAGE_INTERNAL
+    String GC_ACCEPT_LANGUAGE_EXTERNAL
+    String GC_CONTENT_TYPE_INTERNAL
+    String GC_CONTENT_TYPE_EXTERNAL
+    String GC_HOST_NAME_INTERNAL
+    String GC_UNSERCURE_TEST_TLS_SSL_MODE_INTERNAL
+    String GC_ENDPOINT_INTERNAL
+    String GC_JSON_INDENT
+    String GC_SOAP_USER
+    String GC_SOAP_PASSWORD
+    String GC_SOAP_IP
+    String GC_SOAP_SOURCE
+    String GC_SOAP_API_VERSION
+    String GC_KEYSTORE_TYPE
+    String GC_KEYSTORE_PATH
+    String GC_KEYSTORE_PASSWORD
+    String GC_JWT_KEYSTORE_TYPE
+    String GC_JWT_KEYSTORE_PATH
+    String GC_JWT_KEYSTORE_PASSWORD
+    String GC_JWT_KEYSTORE_ALIAS
+    String GC_JAVAX_DEBUG
+    String GC_SOAPACTION_HEADER_PREFIX
+    String GC_XML_TEMPLATES_PATH
+    String GC_JSON_TEMPLATES_PATH
+    String GC_TEMPLATE_FILENAME_EXTENSION
+    String GC_TYPES_PATH
+    String GC_DYNAMIC_TOKEN_CODE
+    Closure GC_DYNAMIC_TOKEN_CODE_CLOSURE
+    String GC_ROUTING_MODULE_NAME
+    String GC_ROUTING_MODULE_PATH
+    String GC_MIDDLEWARE_PACKAGE_TOKEN
+    String GC_MIDDLEWARE_PACKAGE_NAME
+    String GC_SERVICE_MODULES_PATH
+    String GC_NO_JWT_SERVICES
+    String GC_JWT_TEST_MODE
+    String GC_TEST_TRACE_MODE
+    String GC_COMPOSITE_SERVICES_PATH
+    String GC_TEST_HTTP_PLAINTEXT_MODE
 
     T_middleware_conf(String i_conf_file_name) {
         super(i_conf_file_name)
+    }
+
+    @Override
+    void refresh_config() {
         GC_MIDDLEWARE_CLASSES_CONF = nvl_empty_map(get_conf().middleware_classes_conf, GC_MIDDLEWARE_CLASSES_CONF)
         GC_BLACK_BOX_CONFIG = nvl_empty_map(get_conf().black_box_config, GC_BLACK_BOX_CONFIG)
         GC_THREAD_CONFIG_FILE_NAME = nvl_empty_map(get_conf().thread_config_file_name, GC_THREAD_CONFIG_FILE_NAME)
@@ -90,6 +95,7 @@ class T_middleware_conf extends T_common_conf {
         GC_JWT_TEST_MODE = nvl_empty_map(get_conf().jwt_test_mode, GC_JWT_TEST_MODE)
         GC_TEST_TRACE_MODE = nvl_empty_map(get_conf().test_trace_mode, GC_TEST_TRACE_MODE)
         GC_COMPOSITE_SERVICES_PATH = nvl_empty_map(get_conf().composite_services_path, GC_COMPOSITE_SERVICES_PATH)
+        GC_TEST_HTTP_PLAINTEXT_MODE = nvl_empty_map(get_conf().test_http_plaintext_mode, GC_TEST_HTTP_PLAINTEXT_MODE)
     }
 
 }
