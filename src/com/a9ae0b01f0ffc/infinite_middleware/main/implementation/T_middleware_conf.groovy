@@ -48,6 +48,11 @@ class T_middleware_conf extends T_common_conf {
     String GC_TEST_TRACE_MODE
     String GC_COMPOSITE_SERVICES_PATH
     String GC_TEST_HTTP_PLAINTEXT_MODE
+    String GC_AWS_SIGNATURE_ENABLED
+    String GC_AWS_REGION
+    String GC_AWS_ACCESS_KEY
+    String GC_AWS_SECRET_KEY
+    String GC_AWS_SERVICE_NAME
 
     T_middleware_conf(String i_conf_file_name) {
         super(i_conf_file_name)
@@ -96,6 +101,11 @@ class T_middleware_conf extends T_common_conf {
         GC_TEST_TRACE_MODE = nvl_empty_map(get_conf().test_trace_mode, GC_TEST_TRACE_MODE)
         GC_COMPOSITE_SERVICES_PATH = nvl_empty_map(get_conf().composite_services_path, GC_COMPOSITE_SERVICES_PATH)
         GC_TEST_HTTP_PLAINTEXT_MODE = nvl_empty_map(get_conf().test_http_plaintext_mode, GC_TEST_HTTP_PLAINTEXT_MODE)
+        GC_AWS_SIGNATURE_ENABLED = nvl_empty_map(get_conf().aws_signature_enabled, GC_AWS_SIGNATURE_ENABLED)
+        GC_AWS_REGION = nvl_empty_map(get_conf().aws_region, GC_AWS_REGION)
+        GC_AWS_ACCESS_KEY = nvl_empty_map(get_conf().aws_access_key, GC_AWS_ACCESS_KEY)
+        GC_AWS_SECRET_KEY = nvl_empty_map(get_conf().aws_secret_key, GC_AWS_SECRET_KEY)
+        GC_AWS_SERVICE_NAME = nvl_empty_map(get_conf().aws_service_name, GC_AWS_SERVICE_NAME)
     }
 
 }
