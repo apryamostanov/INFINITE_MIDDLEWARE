@@ -15,7 +15,7 @@ class T_tests_3 {
         System.out.println(T_middleware_base_6_util.app_conf().GC_TEST_HTTP_PLAINTEXT_MODE == T_middleware_base_6_util.GC_TRUE_STRING)
         System.out.println(T_middleware_base_6_util.app_conf().get_conf_file_name())
         T_http_message z = new T_http_message()
-        z.set_uri("https://ckpukg1rhf.execute-api.ap-southeast-1.amazonaws.com/uat/api/wirecard/notification")
+        z.set_uri("https://ckpukg1rhf.execute-api.ap-southeast-1.amazonaws.com/uat/api/wirecard/")
         z.set_payload_type("json")
         z.set_payload("""{
   "TransactionNotificationRequest": {
@@ -174,7 +174,7 @@ class T_tests_3 {
         z.set_method("POST")
         T_http_message q = new T_http_message()
         T_middleware_base_6_util.aws_request_with_v4_sign(z, q)
-
+        System.out.println(q)
     }
 
 

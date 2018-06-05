@@ -23,7 +23,7 @@ uploadArchives {
         mavenLocal()
         mavenDeployer {
             repository(url: mavenLocal().url)
-            pom.version = '2.1.4'
+            pom.version = '2.1.5'
             pom.groupId = 'a9ae0b01f0ffc'
             pom.artifactId = 'INFINITE_MIDDLEWARE'
         }

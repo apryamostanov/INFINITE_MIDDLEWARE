@@ -53,6 +53,7 @@ class T_middleware_conf extends T_common_conf {
     String GC_AWS_ACCESS_KEY
     String GC_AWS_SECRET_KEY
     String GC_AWS_SERVICE_NAME
+    String GC_AWS_RESOURCE_NAME
 
     T_middleware_conf(String i_conf_file_name) {
         super(i_conf_file_name)
@@ -106,6 +107,7 @@ class T_middleware_conf extends T_common_conf {
         GC_AWS_ACCESS_KEY = nvl_empty_map(get_conf().aws_access_key, GC_AWS_ACCESS_KEY)
         GC_AWS_SECRET_KEY = nvl_empty_map(get_conf().aws_secret_key, GC_AWS_SECRET_KEY)
         GC_AWS_SERVICE_NAME = nvl_empty_map(get_conf().aws_service_name, GC_AWS_SERVICE_NAME)
+        GC_AWS_RESOURCE_NAME = nvl_empty_map(get_conf().aws_resource_name, GC_AWS_RESOURCE_NAME)
     }
 
 }

@@ -3,6 +3,7 @@ package base
 import Interfaces.I_http_message
 import annotations.I_black_box
 import annotations.I_fix_variable_scopes
+import com.amazonaws.AmazonServiceException
 import com.amazonaws.AmazonWebServiceResponse
 import com.amazonaws.ClientConfiguration
 import com.amazonaws.DefaultRequest
@@ -13,6 +14,7 @@ import com.amazonaws.auth.BasicAWSCredentials
 import com.amazonaws.http.AmazonHttpClient
 import com.amazonaws.http.ExecutionContext
 import com.amazonaws.http.HttpMethodName
+import com.amazonaws.services.s3.internal.S3ErrorResponseHandler
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 import groovy.text.Template
@@ -20,6 +22,7 @@ import groovy.time.TimeCategory
 import groovy.util.slurpersupport.GPathResult
 import groovy.util.slurpersupport.NodeChild
 import groovy.xml.XmlUtil
+import implementation.T_aws_error_response_handler
 import implementation.T_aws_response_handler
 import io.jsonwebtoken.ExpiredJwtException
 import io.jsonwebtoken.Jwts
@@ -109,6 +112,7 @@ class T_middleware_base_6_util extends T_middleware_base_5_app_context {
         l_aws_request.setHttpMethod(HttpMethodName.valueOf(i_request.get_method()))
         l_aws_request.setEndpoint(URI.create(i_request.get_uri()))
         l_aws_request.setContent(new com.amazonaws.util.StringInputStream(i_request.get_payload()))
+        l_aws_request.headers = i_request.get_headers()
         AWS4Signer signer = new AWS4Signer()
         signer.setRegionName(app_conf().GC_AWS_REGION)
         signer.setServiceName(l_aws_request.getServiceName())
@@ -118,21 +122,37 @@ class T_middleware_base_6_util extends T_middleware_base_5_app_context {
         if (is_null(app_conf().GC_AWS_SERVICE_NAME)) {
             l().log_warning(s.AWS_service_name_is_null)
         }
+
+        if (is_null(app_conf().GC_AWS_RESOURCE_NAME)) {
+            l().log_warning(s.AWS_resource_name_is_null)
+        }
+        l_aws_request.resourcePath = app_conf().GC_AWS_RESOURCE_NAME
         signer.sign(l_aws_request, new BasicAWSCredentials(app_conf().GC_AWS_ACCESS_KEY, app_conf().GC_AWS_SECRET_KEY))
-        Response<AmazonWebServiceResponse<String>> l_aws_response = new AmazonHttpClient(new ClientConfiguration())
-                .requestExecutionBuilder()
-                .executionContext(new ExecutionContext(true))
-                .request(l_aws_request)
-                .execute(new T_aws_response_handler())
-        l().log_send_http(l_aws_request, i_request.get_payload())
-        if (is_not_null(l_aws_response.getAwsResponse()?.getResult())) {
+        Response<AmazonWebServiceResponse<String>> l_aws_response
+        try {
+            l().log_send_http(l_aws_request, i_request.get_payload())
+            l_aws_response = new AmazonHttpClient(new ClientConfiguration())
+                    .requestExecutionBuilder()
+                    .executionContext(new ExecutionContext(true))
+                    .request(l_aws_request)
+                    .errorResponseHandler(new T_aws_error_response_handler())
+                    .execute(new T_aws_response_handler())
+            if (is_not_null(l_aws_response.getAwsResponse()?.getResult())) {
+                i_response.set_payload_type(GC_PAYLOAD_TYPE_XML)
+                i_response.set_payload(l_aws_response.getAwsResponse().getResult())
+            }
+            for (l_header_name in l_aws_response.httpResponse.headers.keySet()) {
+                i_response.set_header(l_header_name, l_aws_response.httpResponse.headers.get(l_header_name))
+            }
+            i_response.set_status(l_aws_response.httpResponse.statusCode)
+        } catch (AmazonServiceException e_aws) {
+            i_response.set_status(e_aws.statusCode)
+            for (l_header_name in e_aws.httpHeaders.keySet()) {
+                i_response.set_header(l_header_name, e_aws.httpHeaders.get(l_header_name))
+            }
             i_response.set_payload_type(GC_PAYLOAD_TYPE_XML)
-            i_response.set_payload(l_aws_response.getAwsResponse().getResult())
+            i_response.set_payload(e_aws.getErrorMessage())
         }
-        for (l_header_name in l_aws_response.httpResponse.headers.keySet()) {
-            i_response.set_header(l_header_name, l_aws_response.httpResponse.headers.get(l_header_name))
-        }
-        i_response.set_status(l_aws_response.httpResponse.statusCode)
     }
 
     @I_black_box("error")
